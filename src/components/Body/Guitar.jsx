@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const Guitar = ({ guitar }) => {
+const Guitar = ({ guitar, addToCart}) => {
   const { id, name, image, description, price } = guitar;
+
 
   return (
     <Main className="container-xl">
@@ -13,8 +14,11 @@ const Guitar = ({ guitar }) => {
         <p>{description}</p>
         <Img src={`/img/${image}.jpg`} alt="imagen guitarra" />
         <span> Precio: {price} </span>
-        <button type="button" className="btn btn-dark w-100">
-          Agregar al Carrito
+        <button 
+        type="button"
+        onClick={()=>addToCart(guitar)}
+        >
+          Agrega al Carrito
         </button>
       </Container>
     </Main>

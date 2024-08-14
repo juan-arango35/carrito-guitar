@@ -7,6 +7,22 @@ import styled from "styled-components";
 
 function App() {
   const [inforGuitar, setInfoGuitar] = useState([]);
+  const [cart, setCart] = useState([])
+
+  function addToCart(item){
+    const itemExist = cart.findIndex((guitar)=>guitar.id === item.id)
+   
+    if(itemExist >=0){
+      const updateCart = [...cart];
+      updateCart[itemExist].cantidad++;
+      setCart(updateCart)
+    }else {
+     item.cantidad= 1
+      setCart([...cart, item])
+    }
+
+
+  }
 
   useEffect(() => {
     setInfoGuitar(db);
@@ -19,7 +35,10 @@ function App() {
       <ContainerPricipal >
         {inforGuitar.map((guitar) => (
           <Guitar 
+          key={guitar.id}
           guitar={guitar}
+          setCart={setCart}
+          addToCart={addToCart}
           />
         ))}
       </ContainerPricipal>
