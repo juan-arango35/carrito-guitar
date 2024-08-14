@@ -10,7 +10,7 @@ export const db = [
         id: 2,
         name: 'SRV',
         image: 'guitarra_02',
-        description: 'Morbi ornare augue nisl, vel elementum dui mollis vel. Curabitur non ex id eros fermentum hendrerit.',
+        description: 'nisl, vel elementum dui mollis vel. Curabitur non ex id eros fermentum hendrerit.',
         price: 349,
     },
     {
@@ -24,7 +24,7 @@ export const db = [
         id: 4,
         name: 'VAI',
         image: 'guitarra_04',
-        description: 'Morbi ornare augue nisl, vel elementum dui mollis vel. Curabitur non ex id eros fermentum hendrerit.',
+        description: 'ornare augue nisl, vel elementum dui mollis vel. Curabitur non ex id eros fermentum hendrerit.',
         price: 299,
     },
     {
@@ -38,21 +38,21 @@ export const db = [
         id: 6,
         name: 'White',
         image: 'guitarra_06',
-        description: 'Morbi ornare augue nisl, vel elementum dui mollis vel. Curabitur non ex id eros fermentum hendrerit.',
+        description: 'vel elementum dui mollis vel. Curabitur non ex id eros fermentum hendrerit.',
         price: 329,
     },
     {
         id: 7,
         name: 'Cobain',
         image: 'guitarra_07',
-        description: 'Morbi ornare augue nisl, vel elementum dui mollis vel. Curabitur non ex id eros fermentum hendrerit.',
+        description: 'nare augue nisl, vel elementum dui mollis vel. Curabitur non ex id eros fermentum hendrerit.',
         price: 349,
     },
     {
         id: 8,
         name: 'Dale',
         image: 'guitarra_08',
-        description: 'Morbi ornare augue nisl, vel elementum dui mollis vel. Curabitur non ex id eros fermentum hendrerit.',
+        description: 'elementum dui Morbi ornare augue nisl, vel elementum dui mollis vel. Curabitur non ex id eros fermentum hendrerit.',
         price: 379,
     },
     {
