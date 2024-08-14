@@ -7,7 +7,8 @@ import styled from "styled-components";
 
 function App() {
   const [inforGuitar, setInfoGuitar] = useState([]);
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState([]);
+ 
 
   function addToCart(item){
     const itemExist = cart.findIndex((guitar)=>guitar.id === item.id)
@@ -30,7 +31,10 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header  
+      cart={cart}
+      
+      />
       <h2 className="text-center">Nuestra Colección</h2>
       <ContainerPricipal >
         {inforGuitar.map((guitar) => (
