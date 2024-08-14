@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useState, useMemo } from "react";
 
-const Header = ({ cart }) => {
+const Header = ({ cart ,removeToCart}) => {
   const [show, setShow] = useState(false);
 
   function mostar() {
@@ -65,7 +65,9 @@ const Header = ({ cart }) => {
                           <button type="button" className="btn btn-dark">
                             +
                           </button>
-                          <button className="btn btn-danger" type="button">
+                          <button className="btn btn-danger" type="button"
+                          onClick={()=>removeToCart(guitar.id)}
+                          >
                             X
                           </button>
                         </div>
