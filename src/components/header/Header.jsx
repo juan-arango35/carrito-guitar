@@ -222,6 +222,8 @@ const Texto=styled.p`
 const ContentGuitar=styled.div`
   position: absolute;
   top: 150px;
-  left: 60%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 475px;
+
 `
