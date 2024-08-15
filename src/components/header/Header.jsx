@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useState, useMemo } from "react";
 
-const Header = ({ cart ,removeToCart}) => {
+const Header = ({ cart ,removeToCart, inclementtar,decremetar}) => {
   const [show, setShow] = useState(false);
 
   function mostar() {
@@ -58,11 +58,15 @@ const Header = ({ cart ,removeToCart}) => {
                         </div>
                         <div>
                           <h2>cantidad</h2>
-                          <button type="button" className="btn btn-dark">
+                          <button type="button" className="btn btn-dark"
+                          onClick={()=>decremetar(guitar.id)}
+                          >
                             -
                           </button>
                           {guitar.cantidad}
-                          <button type="button" className="btn btn-dark">
+                          <button type="button" className="btn btn-dark"
+                          onClick={()=>inclementtar(guitar.id)}  
+                          >
                             +
                           </button>
                           <button className="btn btn-danger" type="button"

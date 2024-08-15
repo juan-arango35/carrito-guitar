@@ -13,6 +13,7 @@ function App() {
     const itemExist = cart.findIndex((guitar) => guitar.id === item.id);
 
     if (itemExist >= 0) {
+      if(cart[itemExist].cantidad >= 5) return 
       const updateCart = [...cart];
       updateCart[itemExist].cantidad++;
       setCart(updateCart);
@@ -28,6 +29,32 @@ function App() {
   }
 
 
+  function inclementtar(id){
+   const actualizandoCart=cart.map(item =>{
+    if(item.id ===id && item.cantidad < 5){
+      return {
+        ...item, 
+        cantidad: item.cantidad + 1
+      }
+    }
+    return item;
+   })
+setCart(actualizandoCart)
+  }
+
+  function decremetar(id){
+    const disminuido= cart.map(item =>{
+      if(item.id ===id && item.cantidad > 1){
+        return {
+          ...item,
+          cantidad: item.cantidad - 1
+        }
+      }
+      return item
+    })
+    setCart(disminuido)
+  }
+
   useEffect(() => {
     setInfoGuitar(db);
   }, []);
@@ -36,6 +63,8 @@ function App() {
     <>
       <Header cart={cart} 
       removeToCart={removeToCart}
+      inclementtar={inclementtar}
+      decremetar={decremetar}
       />
       <h2 className="text-center">Nuestra Colección</h2>
       <ContainerPricipal>
