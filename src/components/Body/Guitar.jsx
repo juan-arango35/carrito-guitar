@@ -47,6 +47,7 @@ const Description= styled.p`
   text-align: center;
   font-weight: 530;
   margin-top: 0;
+  height: 50px;
 `
 const TitleNombre= styled.h3`
   text-align: center;
