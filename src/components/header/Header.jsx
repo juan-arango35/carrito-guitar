@@ -34,47 +34,47 @@ const Header = ({ cart ,removeToCart, inclementtar,decremetar, vaciarCarrito}) =
             {cart.length === 0 ? (
               <Texto className="text-center">Agrega un guitarra al carrito</Texto>
             ) : (
-              <div>
+              <>
                 {show && (
                   <InfoCompra key={cart.id}>
                     {cart.map((guitar) => (
                       <Producto>
-                        <div key={guitar.id}>
-                          <h2>imagen</h2>
+                        <ContentItem key={guitar.id}>
+                          <H2>imagen</H2>
                           <img
-                            style={{ width: "20px" }}
+                            style={{ width: "30px",marginLeft:"15px" }}
                             className="img-fluid"
                             src={`/img/${guitar.image}.jpg`}
                             alt="imagen guitarra"
                           />
-                        </div>
-                        <div>
-                          <h2>Nombre de la guitarra</h2>
+                        </ContentItem>
+                        <ContentText>
+                          <H2>Nombre de la guitarra</H2>
                           <p>{guitar.name}</p>
-                        </div>
-                        <div>
-                          <h2>Precio</h2>
+                        </ContentText>
+                        <ContentText>
+                          <H2>Precio</H2>
                           <p>{guitar.price}</p>
-                        </div>
-                        <div>
-                          <h2>cantidad</h2>
-                          <button type="button" className="btn btn-dark"
+                        </ContentText>
+                        <ContentText>
+                          <H2>cantidad</H2>
+                          <Button type="button" className="btn btn-dark"
                           onClick={()=>decremetar(guitar.id)}
                           >
                             -
-                          </button>
+                          </Button>
                           {guitar.cantidad}
-                          <button type="button" className="btn btn-dark"
+                          <Button type="button" className="btn btn-dark"
                           onClick={()=>inclementtar(guitar.id)}  
                           >
                             +
-                          </button>
-                          <button className="btn btn-danger" type="button"
+                          </Button>
+                          <Buttonx className="btn btn-danger" type="button"
                           onClick={()=>removeToCart(guitar.id)}
                           >
                             X
-                          </button>
-                        </div>
+                          </Buttonx>
+                        </ContentText>
                       </Producto>
                     ))}
 
@@ -86,7 +86,7 @@ const Header = ({ cart ,removeToCart, inclementtar,decremetar, vaciarCarrito}) =
                     >Vaciar Carrito</button>
                   </InfoCompra>
                 )}
-              </div>
+              </>
             )}
           </ContentGuitar>
         </Content>
@@ -97,6 +97,45 @@ const Header = ({ cart ,removeToCart, inclementtar,decremetar, vaciarCarrito}) =
 
 export default Header;
 
+
+const Button = styled.button`
+  border: none;
+  padding: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 25px;
+  width: 25px;
+  border-radius: 5px;
+  background: black;
+  color: white;
+  font-weight:bold;
+`
+
+const Buttonx=styled.button`
+  border: none;
+  padding: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 25px;
+  width: 25px;
+  border-radius: 5px;
+  background:red;
+  color: white;
+  font-weight: bold;
+`
+
+const ContentItem= styled.div`
+padding: auto;
+  
+`
+const H2=styled.h2`
+  font-size: 18px;
+`
+const ContentText=styled.div`
+ 
+  margin-top: -28px;
+  text-align: center;
+`
 const HeaderFront = styled.header`
   background: white;
   padding: 0;
@@ -145,6 +184,7 @@ const Producto = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background: #bfdbe7;
 `;
 
 const Texto=styled.p`
@@ -161,4 +201,5 @@ const ContentGuitar=styled.div`
   position: absolute;
   top: 150px;
   left: 60%;
+  width: 475px;
 `
