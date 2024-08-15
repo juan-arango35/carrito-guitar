@@ -15,24 +15,24 @@ const Header = ({ cart ,removeToCart, inclementtar,decremetar, vaciarCarrito}) =
     <HeaderFront>
       <ContainerPrincipal>
         <Content>
-          <div className="col-8 col-md-3">
+          <ContentImg>
             <a href="index.html">
               <Logo src="../../../img/header.jpg" alt="imagen logo" />
             </a>
-          </div>
-
-          <div className="carrito">
             <div>
               <LogoCarrito
                 className="img-fluid"
                 src="./public/img/carrito.png"
                 onClick={mostar}
               />
-              {show ? "Ocultar Componente" : "Mostrar Componente"}
+              {show ? "" : ""}
             </div>
+          </ContentImg>
 
+          <ContentGuitar>
+            
             {cart.length === 0 ? (
-              <p className="text-center">El carrito esta vacio</p>
+              <Texto className="text-center">Agrega un guitarra al carrito</Texto>
             ) : (
               <div>
                 {show && (
@@ -88,7 +88,7 @@ const Header = ({ cart ,removeToCart, inclementtar,decremetar, vaciarCarrito}) =
                 )}
               </div>
             )}
-          </div>
+          </ContentGuitar>
         </Content>
       </ContainerPrincipal>
     </HeaderFront>
@@ -98,29 +98,43 @@ const Header = ({ cart ,removeToCart, inclementtar,decremetar, vaciarCarrito}) =
 export default Header;
 
 const HeaderFront = styled.header`
-  background: #e76868;
+  background: white;
+  padding: 0;
+  margin: -20px;
+  position: relative;
 `;
-
 const Logo = styled.img`
-  width: 80px;
-  height: auto;
+  width: 120px;
+  height: 80px;
+  opacity: 0.8;
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  margin-top: 20px;
 `;
-
+const ContentImg=styled.div`
+  display: flex;
+  justify-content: space-around;
+  border-radius: 20px;
+  align-items:center;
+  background: #b33939;
+  height: 150px;
+`
 const ContainerPrincipal = styled.div`
-  padding: 20px 60px;
-  background: red;
+  padding: 0 60px;
+  background: white;
 `;
-
 const LogoCarrito = styled.img`
   width: 80px;
   height: auto;
+  margin-top: 20px;
+  cursor: pointer;
 `;
-
 const Content = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
 const InfoCompra = styled.div`
   display: flex;
   flex-direction: column;
@@ -132,3 +146,19 @@ const Producto = styled.div`
   justify-content: space-around;
   align-items: center;
 `;
+
+const Texto=styled.p`
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  width: 300px;
+  top: -50px;
+  left: 40px;
+`
+const ContentGuitar=styled.div`
+  position: absolute;
+  top: 150px;
+  left: 60%;
+`
