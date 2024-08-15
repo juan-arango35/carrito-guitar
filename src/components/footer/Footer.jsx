@@ -14,5 +14,7 @@ const Footer = () => {
 export default Footer;
 
 const FooterPie= styled.footer`
-    background: gray;
+    background: white;
+    text-decoration: underline;
+    text-align: center;
 `
