@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useState, useMemo } from "react";
 
-const Header = ({ cart ,removeToCart, inclementtar,decremetar}) => {
+const Header = ({ cart ,removeToCart, inclementtar,decremetar, vaciarCarrito}) => {
   const [show, setShow] = useState(false);
 
   function mostar() {
@@ -17,7 +17,7 @@ const Header = ({ cart ,removeToCart, inclementtar,decremetar}) => {
         <Content>
           <div className="col-8 col-md-3">
             <a href="index.html">
-              <Logo src="../../../public/img/header.jpg" alt="imagen logo" />
+              <Logo src="../../../img/header.jpg" alt="imagen logo" />
             </a>
           </div>
 
@@ -36,7 +36,7 @@ const Header = ({ cart ,removeToCart, inclementtar,decremetar}) => {
             ) : (
               <div>
                 {show && (
-                  <InfoCompra>
+                  <InfoCompra key={cart.id}>
                     {cart.map((guitar) => (
                       <Producto>
                         <div key={guitar.id}>
@@ -81,7 +81,9 @@ const Header = ({ cart ,removeToCart, inclementtar,decremetar}) => {
                         <p>
                           Total a Pagar <span>{precioTotal}</span>{" "}
                         </p>
-                    <button>Vaciar Carrito</button>
+                    <button 
+                    onClick={vaciarCarrito}
+                    >Vaciar Carrito</button>
                   </InfoCompra>
                 )}
               </div>

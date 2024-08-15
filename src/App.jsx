@@ -6,14 +6,26 @@ import { db } from "../src/components/data/db";
 import styled from "styled-components";
 
 function App() {
+  
+  function cartInicial(){
+    const localStorageCart = localStorage.getItem('cart')
+    return localStorageCart ?  JSON.parse(localStorageCart) : []
+  }
+  
   const [inforGuitar, setInfoGuitar] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(cartInicial);
+
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
 
   function addToCart(item) {
     const itemExist = cart.findIndex((guitar) => guitar.id === item.id);
 
     if (itemExist >= 0) {
-      if(cart[itemExist].cantidad >= 5) return 
+      if (cart[itemExist].cantidad >= 5) return;
       const updateCart = [...cart];
       updateCart[itemExist].cantidad++;
       setCart(updateCart);
@@ -23,36 +35,38 @@ function App() {
     }
   }
 
-
-  function removeToCart(id){
-   setCart((prev)=>prev.filter(guitar=>guitar.id !== id))
+  function removeToCart(id) {
+    setCart((prev) => prev.filter((guitar) => guitar.id !== id));
   }
 
-
-  function inclementtar(id){
-   const actualizandoCart=cart.map(item =>{
-    if(item.id ===id && item.cantidad < 5){
-      return {
-        ...item, 
-        cantidad: item.cantidad + 1
-      }
-    }
-    return item;
-   })
-setCart(actualizandoCart)
-  }
-
-  function decremetar(id){
-    const disminuido= cart.map(item =>{
-      if(item.id ===id && item.cantidad > 1){
+  function inclementtar(id) {
+    const actualizandoCart = cart.map((item) => {
+      if (item.id === id && item.cantidad < 5) {
         return {
           ...item,
-          cantidad: item.cantidad - 1
-        }
+          cantidad: item.cantidad + 1,
+        };
       }
-      return item
-    })
-    setCart(disminuido)
+      return item;
+    });
+    setCart(actualizandoCart);
+  }
+
+  function decremetar(id) {
+    const disminuido = cart.map((item) => {
+      if (item.id === id && item.cantidad > 1) {
+        return {
+          ...item,
+          cantidad: item.cantidad - 1,
+        };
+      }
+      return item;
+    });
+    setCart(disminuido);
+  }
+
+  function vaciarCarrito(e) {
+    setCart([]);
   }
 
   useEffect(() => {
@@ -61,10 +75,12 @@ setCart(actualizandoCart)
 
   return (
     <>
-      <Header cart={cart} 
-      removeToCart={removeToCart}
-      inclementtar={inclementtar}
-      decremetar={decremetar}
+      <Header
+        cart={cart}
+        removeToCart={removeToCart}
+        inclementtar={inclementtar}
+        decremetar={decremetar}
+        vaciarCarrito={vaciarCarrito}
       />
       <h2 className="text-center">Nuestra Colección</h2>
       <ContainerPricipal>
