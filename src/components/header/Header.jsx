@@ -78,12 +78,12 @@ const Header = ({ cart ,removeToCart, inclementtar,decremetar, vaciarCarrito}) =
                       </Producto>
                     ))}
 
-                        <p>
+                        <Pagar>
                           Total a Pagar <span>{precioTotal}</span>{" "}
-                        </p>
-                    <button 
+                        </Pagar>
+                    <ButtonTotal 
                     onClick={vaciarCarrito}
-                    >Vaciar Carrito</button>
+                    >Vaciar Carrito</ButtonTotal>
                   </InfoCompra>
                 )}
               </>
@@ -98,6 +98,28 @@ const Header = ({ cart ,removeToCart, inclementtar,decremetar, vaciarCarrito}) =
 export default Header;
 
 
+const ButtonTotal= styled.button`
+  background: #941919;
+  height: 30px;
+  width: 160px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: white;
+
+  
+
+`
+const Pagar= styled.p`
+
+  text-align: right;
+  padding-right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+
+`
 const Button = styled.button`
   border: none;
   padding: 5px;
@@ -184,7 +206,7 @@ const Producto = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: #bfdbe7;
+  background: #fbd8d8;
 `;
 
 const Texto=styled.p`
