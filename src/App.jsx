@@ -104,5 +104,5 @@ const ContainerPricipal = styled.div`
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
-  background: black;
+  background: white;
 `;
